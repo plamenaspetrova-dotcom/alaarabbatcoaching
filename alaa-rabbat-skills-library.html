@@ -1,0 +1,1626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alaa Rabbat — Coaching Skills Library</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark: #0A1628;
+    --dark2: #111d35;
+    --blue: #3B82F6;
+    --blue-light: #60a5fa;
+    --blue-dim: rgba(59,130,246,0.12);
+    --white: #FFFFFF;
+    --offwhite: #F4F5F7;
+    --muted: #8896a8;
+    --card: #ffffff;
+    --border: rgba(59,130,246,0.12);
+    --shadow: 0 4px 24px rgba(10,22,40,0.08);
+    --shadow-hover: 0 12px 40px rgba(10,22,40,0.16);
+    --green: #22C55E;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--offwhite);
+    color: var(--dark);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--offwhite); }
+  ::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 3px; }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--dark);
+    padding: 22px 48px;
+    display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 100;
+    border-bottom: 1px solid rgba(59,130,246,0.2);
+  }
+  .logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px; letter-spacing: 0.08em; color: #fff;
+  }
+  .logo span { color: var(--blue); }
+  .header-tag {
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--dark) 0%, var(--dark2) 60%, #0f2040 100%);
+    padding: 64px 48px 56px;
+    text-align: center; position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -80px; right: -80px;
+    width: 320px; height: 320px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(59,130,246,0.1) 0%, transparent 70%);
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -60px; left: -60px;
+    width: 240px; height: 240px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(59,130,246,0.06) 0%, transparent 70%);
+  }
+  .hero-label {
+    display: inline-block;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--blue);
+    background: rgba(59,130,246,0.1);
+    border: 1px solid rgba(59,130,246,0.25);
+    padding: 6px 18px; border-radius: 40px; margin-bottom: 22px;
+  }
+  .hero h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 6vw, 68px);
+    letter-spacing: 0.04em; color: #fff; margin-bottom: 14px; line-height: 1;
+  }
+  .hero h1 span { color: var(--blue); }
+  .hero p {
+    font-size: 15px; color: rgba(255,255,255,0.55);
+    font-weight: 300; max-width: 500px;
+    margin: 0 auto 32px; line-height: 1.7;
+  }
+  .hero-stats {
+    display: flex; justify-content: center; gap: 32px; flex-wrap: wrap;
+  }
+  .hero-stat {
+    padding: 12px 24px;
+    background: rgba(59,130,246,0.08);
+    border: 1px solid rgba(59,130,246,0.2);
+    border-radius: 10px; text-align: center;
+  }
+  .hero-stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px; color: var(--blue); line-height: 1;
+  }
+  .hero-stat-label { font-size: 11px; color: var(--muted); margin-top: 3px; letter-spacing: 0.06em; }
+
+  /* ── CONTROLS ── */
+  .controls {
+    padding: 32px 48px 0;
+    display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+  }
+  .search-wrap { position: relative; flex:1; min-width:240px; max-width:400px; }
+  .search-wrap svg {
+    position: absolute; left: 14px; top: 50%;
+    transform: translateY(-50%); color: var(--muted);
+  }
+  .search-input {
+    width: 100%; padding: 12px 14px 12px 42px;
+    border: 1.5px solid var(--border); border-radius: 10px;
+    background: #fff; font-family: 'DM Sans', sans-serif;
+    font-size: 14px; color: var(--dark); outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .search-input:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+  }
+  .filter-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+  .filter-btn {
+    padding: 10px 18px; border-radius: 8px;
+    border: 1.5px solid var(--border); background: #fff;
+    font-family: 'DM Sans', sans-serif; font-size: 12px;
+    font-weight: 600; color: var(--dark); cursor: pointer;
+    transition: all 0.2s; letter-spacing: 0.04em;
+  }
+  .filter-btn:hover { border-color: var(--blue); color: var(--blue); }
+  .filter-btn.active { background: var(--dark); border-color: var(--dark); color: #fff; }
+
+  /* ── GRID ── */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 22px; padding: 28px 48px 64px;
+  }
+
+  /* ── SKILL CARD ── */
+  .skill-card {
+    background: var(--card); border: 1.5px solid var(--border);
+    border-radius: 16px; padding: 26px; cursor: pointer;
+    transition: all 0.25s; position: relative; overflow: hidden;
+  }
+  .skill-card::before {
+    content: ''; position: absolute; top:0; left:0; right:0; height:3px;
+    background: var(--blue); transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .skill-card:hover { box-shadow: var(--shadow-hover); border-color: rgba(59,130,246,0.3); transform: translateY(-2px); }
+  .skill-card:hover::before { transform: scaleX(1); }
+
+  .card-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 14px; }
+  .card-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }
+  .card-category {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.16em;
+    text-transform: uppercase; padding: 4px 10px; border-radius: 20px;
+  }
+  .card-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px; font-weight: 400; color: var(--dark);
+    margin-bottom: 8px; line-height: 1.2;
+  }
+  .card-desc { font-size: 13px; color: #5a6a82; line-height: 1.65; margin-bottom: 18px; }
+  .card-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 18px; }
+  .tag {
+    font-size: 11px; font-weight: 500; padding: 3px 10px;
+    border-radius: 20px; background: var(--offwhite);
+    color: var(--dark); border: 1px solid var(--border);
+  }
+  .card-actions { display: flex; gap: 10px; }
+  .btn-generate {
+    flex: 1; padding: 11px 16px; background: var(--dark); color: #fff;
+    border: none; border-radius: 8px; font-family: 'DM Sans', sans-serif;
+    font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.2s;
+  }
+  .btn-generate:hover { background: var(--dark2); }
+  .btn-extract {
+    padding: 11px 16px; background: transparent; color: var(--blue);
+    border: 1.5px solid var(--blue); border-radius: 8px;
+    font-family: 'DM Sans', sans-serif; font-size: 13px;
+    font-weight: 600; cursor: pointer; transition: all 0.2s;
+  }
+  .btn-extract:hover { background: var(--blue); color: #fff; }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(10,22,40,0.7); backdrop-filter: blur(4px);
+    z-index: 200; align-items: center; justify-content: center; padding: 24px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: #fff; border-radius: 20px;
+    max-width: 780px; width: 100%; max-height: 88vh; overflow-y: auto;
+    box-shadow: 0 24px 80px rgba(10,22,40,0.3);
+    animation: modalIn 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  }
+  @keyframes modalIn {
+    from { opacity:0; transform:scale(0.92) translateY(20px); }
+    to   { opacity:1; transform:scale(1) translateY(0); }
+  }
+  .modal-header {
+    background: var(--dark); padding: 26px 30px;
+    border-radius: 20px 20px 0 0;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .modal-header h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px; letter-spacing: 0.04em; color: #fff;
+  }
+  .modal-header p { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .modal-close {
+    background: rgba(255,255,255,0.1); border: none; color: #fff;
+    width: 34px; height: 34px; border-radius: 8px; cursor: pointer;
+    font-size: 18px; display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  .modal-close:hover { background: rgba(255,255,255,0.2); }
+  .modal-body { padding: 30px; }
+
+  .tabs {
+    display: flex; gap: 4px; background: var(--offwhite);
+    border-radius: 10px; padding: 4px; margin-bottom: 26px;
+  }
+  .tab-btn {
+    flex: 1; padding: 10px 16px; border: none; border-radius: 8px;
+    background: transparent; font-family: 'DM Sans', sans-serif;
+    font-size: 13px; font-weight: 600; color: #7a8da0; cursor: pointer; transition: all 0.2s;
+  }
+  .tab-btn.active { background: #fff; color: var(--dark); box-shadow: 0 2px 8px rgba(10,22,40,0.1); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .prompt-section-title {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--blue); margin-bottom: 12px;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .form-row.full { grid-template-columns: 1fr; }
+  .form-group label {
+    display: block; font-size: 12px; font-weight: 600;
+    color: var(--dark); margin-bottom: 6px; letter-spacing: 0.04em;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%; padding: 10px 14px;
+    border: 1.5px solid var(--border); border-radius: 8px;
+    font-family: 'DM Sans', sans-serif; font-size: 13px;
+    color: var(--dark); background: #fff; outline: none; transition: border-color 0.2s;
+  }
+  .form-group textarea { resize: vertical; min-height: 80px; }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--blue); }
+
+  .prompt-output-wrap {
+    background: var(--dark); border-radius: 12px;
+    padding: 20px; margin-top: 18px; position: relative;
+  }
+  .prompt-output-label {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--blue); margin-bottom: 12px;
+  }
+  .prompt-output {
+    font-family: 'DM Sans', sans-serif; font-size: 13px;
+    color: #c8d8f0; line-height: 1.75; white-space: pre-wrap; word-break: break-word;
+  }
+  .copy-btn {
+    position: absolute; top: 16px; right: 16px;
+    background: var(--blue); color: #fff; border: none;
+    border-radius: 6px; padding: 6px 14px;
+    font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 700;
+    cursor: pointer; letter-spacing: 0.06em; transition: background 0.2s;
+  }
+  .copy-btn:hover { background: var(--blue-light); }
+  .copy-btn.copied { background: var(--green); }
+
+  .btn-build-prompt {
+    width: 100%; padding: 14px; background: var(--blue); color: #fff;
+    border: none; border-radius: 10px; font-family: 'DM Sans', sans-serif;
+    font-size: 14px; font-weight: 700; cursor: pointer; margin-top: 18px; transition: background 0.2s;
+  }
+  .btn-build-prompt:hover { background: #2563eb; }
+
+  .framework-block {
+    background: var(--offwhite); border-left: 3px solid var(--blue);
+    border-radius: 0 10px 10px 0; padding: 14px 18px; margin-bottom: 12px;
+  }
+  .framework-block h4 { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+  .framework-block p { font-size: 13px; color: #5a6a82; line-height: 1.65; }
+
+  .extract-actions { display: flex; gap: 10px; margin-top: 18px; }
+  .btn-copy-all {
+    flex: 1; padding: 12px; background: var(--dark); color: #fff;
+    border: none; border-radius: 8px; font-family: 'DM Sans', sans-serif;
+    font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.2s;
+  }
+  .btn-copy-all:hover { background: var(--dark2); }
+  .btn-download {
+    padding: 12px 20px; background: transparent; color: var(--blue);
+    border: 1.5px solid var(--blue); border-radius: 8px;
+    font-family: 'DM Sans', sans-serif; font-size: 13px;
+    font-weight: 600; cursor: pointer; transition: all 0.2s;
+  }
+  .btn-download:hover { background: var(--blue); color: #fff; }
+
+  /* Category colours */
+  .cat-client   { background: #e8f0ff; color: #1e40af; }
+  .cat-content  { background: #e8fff0; color: #166534; }
+  .cat-sales    { background: #fff0e8; color: #92400e; }
+  .cat-growth   { background: #f0e8ff; color: #5b21b6; }
+  .cat-system   { background: #fff8e8; color: #78350f; }
+  .icon-client  { background: #e8f0ff; }
+  .icon-content { background: #e8fff0; }
+  .icon-sales   { background: #fff0e8; }
+  .icon-growth  { background: #f0e8ff; }
+  .icon-system  { background: #fff8e8; }
+
+  .no-results { grid-column:1/-1; text-align:center; padding:80px 0; color:var(--muted); }
+  .no-results span { font-size:40px; display:block; margin-bottom:14px; }
+
+  .toast {
+    position: fixed; bottom: 28px; right: 28px;
+    background: var(--dark); color: #fff;
+    padding: 13px 20px; border-radius: 10px; font-size: 13px; font-weight: 500;
+    box-shadow: 0 8px 32px rgba(10,22,40,0.25);
+    transform: translateY(80px); opacity: 0;
+    transition: all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    z-index: 999; display: flex; align-items: center; gap: 10px;
+  }
+  .toast.show { transform: translateY(0); opacity: 1; }
+  .toast-dot { width:8px; height:8px; border-radius:50%; background:var(--blue); }
+
+  @media(max-width:768px){
+    header { padding: 18px 20px; }
+    .hero { padding: 48px 20px 40px; }
+    .controls { padding: 22px 20px 0; }
+    .grid { padding: 22px 20px 48px; grid-template-columns:1fr; }
+    .form-row { grid-template-columns:1fr; }
+    .modal-body { padding: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">ALAA <span>RABBAT</span></div>
+  <div class="header-tag">Coaching Skills Library</div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">AI-Powered Coaching Tools</div>
+  <h1>Your <span>Coaching</span><br>Skills Library</h1>
+  <p>Every prompt you need to run your coaching business — onboarding, content, sales, and client reports. Built for how you actually work.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="hero-stat-num">20</div><div class="hero-stat-label">Skills</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">5</div><div class="hero-stat-label">Categories</div></div>
+    <div class="hero-stat"><div class="hero-stat-num">3hrs</div><div class="hero-stat-label">Saved Per Week</div></div>
+  </div>
+</div>
+
+<!-- CONTROLS -->
+<div class="controls">
+  <div class="search-wrap">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input class="search-input" type="text" id="searchInput" placeholder="Search skills...">
+  </div>
+  <div class="filter-btns">
+    <button class="filter-btn active" data-cat="all">All</button>
+    <button class="filter-btn" data-cat="client">Client Docs</button>
+    <button class="filter-btn" data-cat="content">Content</button>
+    <button class="filter-btn" data-cat="sales">Sales</button>
+    <button class="filter-btn" data-cat="growth">Growth</button>
+    <button class="filter-btn" data-cat="system">Systems</button>
+  </div>
+</div>
+
+<!-- GRID -->
+<div class="grid" id="skillsGrid"></div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <h2 id="modalTitle">Skill</h2>
+        <p id="modalSubtitle">Generate a prompt or extract the framework</p>
+      </div>
+      <button class="modal-close" onclick="closeModal()">x</button>
+    </div>
+    <div class="modal-body">
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab('generate')">Generate Prompt</button>
+        <button class="tab-btn" onclick="switchTab('extract')">Extract Framework</button>
+      </div>
+      <div class="tab-panel active" id="tab-generate">
+        <div class="prompt-section-title">Build Your Prompt</div>
+        <div id="formFields"></div>
+        <button class="btn-build-prompt" onclick="buildPrompt()">Build Prompt</button>
+        <div class="prompt-output-wrap" id="promptOutputWrap" style="display:none">
+          <div class="prompt-output-label">Ready-to-Use Prompt</div>
+          <button class="copy-btn" id="copyPromptBtn" onclick="copyPrompt()">Copy</button>
+          <div class="prompt-output" id="promptOutput"></div>
+        </div>
+      </div>
+      <div class="tab-panel" id="tab-extract">
+        <div class="prompt-section-title">Core Framework</div>
+        <div id="frameworkContent"></div>
+        <div class="extract-actions">
+          <button class="btn-copy-all" onclick="copyFramework()">Copy Full Framework</button>
+          <button class="btn-download" onclick="downloadFramework()">Download .txt</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"><div class="toast-dot"></div><span id="toastMsg">Copied!</span></div>
+
+<script>
+const SKILLS = [
+
+  // ══════════════════════════════
+  // CLIENT DOCUMENTS
+  // ══════════════════════════════
+  {
+    id: 'onboarding-welcome',
+    title: 'Client Welcome Package',
+    category: 'client',
+    icon: 'W',
+    desc: 'Generate a full branded onboarding document for a new client — welcome message, roadmap, how the programme works, check-in system, and first week checklist.',
+    tags: ['Onboarding', 'Day 1', 'Welcome', 'Retention'],
+    fields: [
+      { id: 'clientName', label: 'Client Full Name', type: 'text', placeholder: 'e.g. Ahmed Al-Rashid' },
+      { id: 'clientGoal', label: 'Their Main Goal', type: 'select', options: ['Lose fat / lose weight', 'Build muscle / gain size', 'Body recomposition', 'Get stronger', 'Improve fitness & energy', 'Train for an event'] },
+      { id: 'package', label: 'Package They Joined', type: 'select', options: ['Training Blueprint (€59)', '1:1 Transformation Coaching (€199/mo)', 'Elite Transformation Coaching (€449/mo)'] },
+      { id: 'trainingDays', label: 'Training Days Per Week', type: 'select', options: ['3 days/week', '4 days/week', '5 days/week'] },
+      { id: 'checkInDay', label: 'Weekly Check-In Day', type: 'select', options: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Sunday'] },
+      { id: 'startWeight', label: 'Starting Weight (optional)', type: 'text', placeholder: 'e.g. 88kg' }
+    ],
+    prompt: (v) => `You are Alaa Rabbat's AI coaching assistant. Generate a complete, branded client onboarding welcome package.
+
+CLIENT NAME: ${v.clientName}
+MAIN GOAL: ${v.clientGoal}
+PACKAGE: ${v.package}
+TRAINING DAYS: ${v.trainingDays}
+WEEKLY CHECK-IN DAY: ${v.checkInDay}
+STARTING WEIGHT: ${v.startWeight || 'not provided'}
+
+ALAA RABBAT BRAND:
+- Certified Fitness Trainer & Nutritionist | 8+ years | 500+ clients
+- Website: alaarabbat.com | App: app.alaarabbat.com
+- Instagram: @alaa.rabbat | WhatsApp: +971 52 883 9230
+- Brand colours: Dark navy #0A1628, Electric blue #3B82F6
+- Voice: Direct, warm, personal, results-focused. Never generic.
+
+Generate ALL 8 sections in full:
+
+1. PERSONAL WELCOME MESSAGE (150-200 words)
+Address ${v.clientName} directly. Reference their goal (${v.clientGoal}). Acknowledge this is a commitment. Set the tone of partnership. Signed as Alaa.
+
+2. YOUR 12-WEEK TRANSFORMATION ROADMAP
+Phase 1 (Weeks 1-4): Foundation. Phase 2 (Weeks 5-8): Build. Phase 3 (Weeks 9-12): Transform.
+Write what they will experience and feel in each phase — specific and motivational.
+
+3. HOW YOUR PROGRAMME WORKS
+How to access app.alaarabbat.com, how to read their programme, how to log sessions, what to do if they miss a session, how to send form check videos to Alaa on WhatsApp.
+
+4. YOUR NUTRITION GUIDE EXPLAINED
+Flexible dieting explained simply. Protein-first approach. Meal structure (3-4 meals/day). What to do eating out. Consistency over perfection rule.
+
+5. THE CHECK-IN SYSTEM
+Every ${v.checkInDay}: submit weight + sessions completed + energy rating (1-10) + notes via WhatsApp. What Alaa reviews. Why honest numbers matter more than perfect ones.
+
+6. HOW TO REACH ALAA
+WhatsApp +971 52 883 9230 — anytime. 24hr response. What to message about. What not to panic about (one bad day, scale going up temporarily, one missed session).
+
+7. YOUR FIRST WEEK CHECKLIST
+8-10 specific action items for Week 1. Include: access the app, read the programme, set training days in calendar, take starting photos, weigh in on Day 1, log first session, WhatsApp Alaa after first workout.
+
+8. MOTIVATIONAL CLOSE
+Short, powerful, personal. Reference ${v.clientName}'s goal. The hard part is starting — they've already done that. Signed: Alaa Rabbat | @alaa.rabbat | alaarabbat.com`,
+    framework: [
+      { title: 'The 8-Section Onboarding System', body: 'Welcome → Roadmap → Programme education → Nutrition education → Check-in system → Communication → First week checklist → Motivational close. Every section removes a question the client would otherwise ask.' },
+      { title: 'Why Onboarding Reduces Churn', body: 'Clients who understand the process in week 1 are 3x more likely to complete month 3. Most coaches skip onboarding — that is why most clients quit. A 10-minute document investment saves a client relationship.' },
+      { title: 'The First Week Checklist Rule', body: 'Give the client exactly 8-10 specific actions for Week 1 only. Not 30 things. Not "start working out." Specific, achievable actions build the habit of following instructions — which is the entire coaching relationship.' },
+      { title: 'Personal vs Generic Language', body: 'Every section should include the client\'s name at least twice and reference their specific goal at least three times. Generic onboarding documents feel like PDFs. Personalised ones feel like care.' }
+    ]
+  },
+
+  {
+    id: 'weekly-report',
+    title: 'Weekly Check-In Report',
+    category: 'client',
+    icon: 'W',
+    desc: 'Turn a client\'s weekly check-in data into a personalised coaching report — progress analysis, specific feedback, and next week\'s focus.',
+    tags: ['Weekly', 'Check-in', 'Progress', 'Feedback'],
+    fields: [
+      { id: 'clientName', label: 'Client Name', type: 'text', placeholder: 'e.g. Marcus T.' },
+      { id: 'weekNum', label: 'Week Number', type: 'text', placeholder: 'e.g. 4' },
+      { id: 'weightLast', label: 'Weight Last Week (kg)', type: 'text', placeholder: 'e.g. 86.2' },
+      { id: 'weightThis', label: 'Weight This Week (kg)', type: 'text', placeholder: 'e.g. 85.7' },
+      { id: 'sessions', label: 'Sessions Completed', type: 'select', options: ['5/5 - Perfect week', '4/5 - Almost perfect', '4/4 - Hit all sessions', '3/4 - Missed one', '3/5 - Missed two', '2/4 or less - Tough week'] },
+      { id: 'energy', label: 'Energy Level (1-10)', type: 'text', placeholder: 'e.g. 7' },
+      { id: 'clientGoal', label: 'Their Goal', type: 'select', options: ['Fat loss', 'Muscle building', 'Body recomp', 'Strength'] },
+      { id: 'notes', label: 'Client Notes / What They Said', type: 'textarea', placeholder: 'e.g. Felt strong on leg day, struggled with sleep this week, birthday dinner on Friday', full: true }
+    ],
+    prompt: (v) => `You are Alaa Rabbat's AI coaching assistant. Generate a personalised weekly check-in report for ${v.clientName}.
+
+WEEK: ${v.weekNum}
+GOAL: ${v.clientGoal}
+WEIGHT: Last week ${v.weightLast}kg → This week ${v.weightThis}kg (change: ${(parseFloat(v.weightThis) - parseFloat(v.weightLast)).toFixed(1)}kg)
+SESSIONS: ${v.sessions}
+ENERGY: ${v.energy}/10
+CLIENT NOTES: ${v.notes}
+
+Generate the weekly report with these sections:
+
+WEEK ${v.weekNum} CHECK-IN — ${v.clientName.toUpperCase()}
+
+YOUR NUMBERS THIS WEEK:
+Show as a clear comparison table: Last Week vs This Week for Weight, Sessions, Energy Level, and the Change column.
+
+WHAT THE DATA TELLS US:
+Interpret the weight change honestly. For fat loss: explain that small drops are real progress, gains could be water/muscle. For muscle building: slight weight gain with good sessions is ideal. Be specific to ${v.clientName}'s data, not generic.
+
+ALAA'S FEEDBACK:
+3-4 sentences of specific, personal coaching feedback. Reference their actual notes (${v.notes}). Acknowledge what they did well. Be direct about what to improve. Sound like a coach who reviewed their actual data — not a template.
+
+PROGRAMME ADJUSTMENT (if needed):
+Based on their data: if weight loss stalling — small calorie note. If energy low — nutrition timing suggestion. If all sessions hit — progression (add weight/reps next session). If tough week — recovery note.
+
+YOUR FOCUS FOR NEXT WEEK:
+One clear, specific focus. Not five things. One thing. Make it measurable.
+
+MOTIVATIONAL CLOSE:
+2-3 sentences. Personal to ${v.clientName}. Reference their progress so far and their goal (${v.clientGoal}). Energise them for next week.
+
+Sign off: Alaa | @alaa.rabbat | WhatsApp: +971 52 883 9230`,
+    framework: [
+      { title: 'The Weekly Report Formula', body: 'Numbers → Interpretation → Personal feedback → Adjustment → One focus → Motivational close. Never skip interpretation — the client needs to understand what their numbers mean, not just see them.' },
+      { title: 'How to Interpret Weight Changes', body: 'Down = celebrate but explain it\'s one data point. Up = never panic — explain muscle gain, water retention (especially after high-carb or salty meal), hormonal fluctuation. Flat = assess sessions and nutrition first.' },
+      { title: 'The One Focus Rule', body: 'Give the client ONE focus for next week. Not five things to improve. One. Clients who are given too many instructions improve none of them. One clear focus creates one real change.' }
+    ]
+  },
+
+  {
+    id: 'monthly-report',
+    title: 'Monthly Progress Report',
+    category: 'client',
+    icon: 'M',
+    desc: 'Generate a premium monthly transformation report — the document clients share with friends and that makes them re-sign for another month.',
+    tags: ['Monthly', 'Progress', 'Retention', 'Report'],
+    fields: [
+      { id: 'clientName', label: 'Client Name', type: 'text', placeholder: 'e.g. Rania S.' },
+      { id: 'monthNum', label: 'Month Number', type: 'text', placeholder: 'e.g. 2' },
+      { id: 'startWeight', label: 'Starting Weight (Month 1)', type: 'text', placeholder: 'e.g. 74kg' },
+      { id: 'currentWeight', label: 'Current Weight', type: 'text', placeholder: 'e.g. 70.5kg' },
+      { id: 'sessionsMonth', label: 'Sessions This Month', type: 'text', placeholder: 'e.g. 17 out of 20' },
+      { id: 'compliance', label: 'Overall Compliance', type: 'select', options: ['Excellent (85%+)', 'Good (70-84%)', 'Average (55-69%)', 'Below average (under 55%)'] },
+      { id: 'milestones', label: 'Key Milestones This Month', type: 'textarea', placeholder: 'e.g. Hit a new PB on bench press, went down a dress size, slept better, never missed a Monday session', full: true },
+      { id: 'challenges', label: 'Challenges Faced', type: 'textarea', placeholder: 'e.g. Travelled for 10 days, had a stressful week at work in week 3', full: true }
+    ],
+    prompt: (v) => `You are Alaa Rabbat's AI coaching assistant. Generate a premium monthly transformation report for ${v.clientName}.
+
+MONTH: ${v.monthNum}
+STARTING WEIGHT: ${v.startWeight}
+CURRENT WEIGHT: ${v.currentWeight}
+TOTAL CHANGE: ${(parseFloat(v.currentWeight) - parseFloat(v.startWeight)).toFixed(1)}kg
+SESSIONS: ${v.sessionsMonth}
+COMPLIANCE: ${v.compliance}
+MILESTONES: ${v.milestones}
+CHALLENGES: ${v.challenges}
+
+Generate a premium monthly report:
+
+MONTH ${v.monthNum} TRANSFORMATION REPORT
+Client: ${v.clientName} | Coach: Alaa Rabbat | alaarabbat.com
+
+YOUR MONTH IN NUMBERS:
+Visual stats layout:
+- Weight change this month: calculated
+- Total change since start: ${(parseFloat(v.currentWeight) - parseFloat(v.startWeight)).toFixed(1)}kg
+- Sessions completed: ${v.sessionsMonth}
+- Programme compliance: ${v.compliance}
+- Months with Alaa: ${v.monthNum}
+
+WHAT YOU ACHIEVED THIS MONTH:
+3-5 specific achievements written as celebrations. Reference the milestones: ${v.milestones}. Each one written to make the client feel proud — not just informed. E.g. "You hit a new personal best on bench press this month. That's not luck — that's 4 weeks of progressive loading paying off exactly as planned."
+
+WHAT THE DATA SHOWS:
+Honest, coach-like interpretation. If results are strong: explain why. If slower: honest + solution-focused. Address challenges (${v.challenges}) directly — don't pretend they didn't happen.
+
+PROGRAMME UPDATES FOR MONTH ${parseInt(v.monthNum)+1}:
+What's changing in the programme next month and why. What new focus area. One specific measurable target for next month.
+
+ALAA'S PERSONAL MESSAGE:
+4-5 sentences from Alaa. Personal to ${v.clientName}'s journey. Not generic. References their specific achievements and their starting point. Ends with genuine excitement for next month.
+
+YOUR MONTH ${parseInt(v.monthNum)+1} TARGETS:
+3 specific, measurable targets.
+1 habit to lock in.
+1 mindset focus.
+
+Sign off: Alaa Rabbat | Certified Fitness Trainer & Nutritionist | @alaa.rabbat | alaarabbat.com`,
+    framework: [
+      { title: 'Why Monthly Reports Drive Retention', body: 'The moment a client receives a premium monthly report, they stop thinking about cancelling. It proves the coach is engaged, tracking their data, and invested in their results. Most coaches send nothing. Alaa sends a document.' },
+      { title: 'The Celebration Framework', body: 'List 3-5 achievements, not just weight. Include: performance wins (new PB), habit wins (never missed a Monday), lifestyle wins (slept better, more energy). Weight is one metric. Transformation is everything.' },
+      { title: 'Honest Interpretation Builds Trust', body: 'Never hide from slow progress in the report. Address it directly, explain why, and give the solution. A client who receives an honest explanation stays. A client who gets silence cancels.' }
+    ]
+  },
+
+  {
+    id: 'consultation-followup',
+    title: 'Post-Consultation Summary',
+    category: 'client',
+    icon: 'C',
+    desc: 'After a free 15-minute call, generate a professional follow-up document that summarises what was discussed and makes the prospect feel understood — closing them while they\'re still warm.',
+    tags: ['Sales', 'Follow-up', 'Free Call', 'Conversion'],
+    fields: [
+      { id: 'prospectName', label: 'Prospect Name', type: 'text', placeholder: 'e.g. Khalid M.' },
+      { id: 'goal', label: 'Their Goal (from call)', type: 'text', placeholder: 'e.g. Lose 15kg before his wedding in June' },
+      { id: 'currentSituation', label: 'Current Situation', type: 'text', placeholder: 'e.g. Goes to gym 2x/week, no structure, tried Keto last year' },
+      { id: 'mainChallenge', label: 'Biggest Challenge They Mentioned', type: 'text', placeholder: 'e.g. Inconsistency and not knowing what to eat' },
+      { id: 'recommended', label: 'Programme You Recommended', type: 'select', options: ['1:1 Transformation Coaching (€199/mo)', 'Elite Transformation Coaching (€449/mo)', 'Training Blueprint (€59)'] },
+      { id: 'timeline', label: 'Their Timeline / Deadline', type: 'text', placeholder: 'e.g. 5 months until the wedding' }
+    ],
+    prompt: (v) => `You are Alaa Rabbat's AI coaching assistant. Generate a post-consultation follow-up document for ${v.prospectName}.
+
+PROSPECT: ${v.prospectName}
+GOAL: ${v.goal}
+CURRENT SITUATION: ${v.currentSituation}
+BIGGEST CHALLENGE: ${v.mainChallenge}
+RECOMMENDED: ${v.recommended}
+TIMELINE: ${v.timeline}
+
+Generate a warm, professional follow-up document to send within 1 hour of the call:
+
+SUBJECT LINE (for email version): "Your coaching plan, ${v.prospectName} — from our call today"
+
+OPENING:
+Thank ${v.prospectName} for the call. Reference something specific they said to prove you listened. 2-3 sentences max.
+
+WHAT I UNDERSTOOD FROM OUR CALL:
+Restate their situation and goal in Alaa's words — show deep understanding.
+- Their goal: ${v.goal}
+- Where they are now: ${v.currentSituation}
+- What's been stopping them: ${v.mainChallenge}
+- Their timeline: ${v.timeline}
+
+WHY I RECOMMENDED ${v.recommended}:
+3-4 sentences explaining exactly why this is the right programme for ${v.prospectName}'s specific goal and situation. Not generic — specific to their case.
+
+WHAT YOU'LL RECEIVE:
+List exactly what's included in ${v.recommended} — training programme, nutrition, check-ins, app access, WhatsApp support.
+
+YOUR INVESTMENT:
+State the price clearly. Include both payment options (monthly and upfront) with the upfront saving. Never apologise for the price.
+
+YOUR 5-MONTH PLAN (reference their ${v.timeline} timeline):
+Brief month-by-month overview of what we'd achieve together — specific to their goal.
+
+NEXT STEP:
+One clear action. "To get started, reply to this message or WhatsApp me directly: +971 52 883 9230"
+Or: "Claim your spot here: [PAYMENT LINK]"
+
+CLOSING:
+Personal, genuine, brief. Alaa believes in ${v.prospectName}'s goal. Reference their timeline — this is achievable if they start now.
+
+Sign off: Alaa Rabbat | alaarabbat.com | @alaa.rabbat`,
+    framework: [
+      { title: 'The 1-Hour Follow-Up Rule', body: 'Send the follow-up within 1 hour of the call while the prospect is still warm. After 24 hours, conversion rate drops by 40%. A professional document sent fast signals organisation and commitment — two things every client wants in a coach.' },
+      { title: 'Show You Listened', body: 'Reference something specific from the call in the first paragraph. This is the most powerful conversion tool — most coaches send a generic proposal. A document that proves you paid attention converts because it builds instant trust.' },
+      { title: 'Never Apologise for the Price', body: 'State the investment clearly and follow immediately with the value. "Your investment is €199/month — this includes X, Y, Z which together give you [outcome]." No "I know it\'s a lot" — that kills confidence in the offer.' }
+    ]
+  },
+
+  {
+    id: 'reengagement',
+    title: 'Re-engagement Message',
+    category: 'client',
+    icon: 'R',
+    desc: 'When a client goes quiet or is thinking of stopping — generate a warm, honest message that re-connects without pressure and usually brings them back.',
+    tags: ['Retention', 'Churn Prevention', 'WhatsApp', 'Client Care'],
+    fields: [
+      { id: 'clientName', label: 'Client Name', type: 'text', placeholder: 'e.g. Tariq' },
+      { id: 'weeksMissing', label: 'How Long Since Last Check-in', type: 'select', options: ['1 week quiet', '2 weeks quiet', '3+ weeks gone quiet', 'Said they want to pause', 'Said they want to cancel'] },
+      { id: 'lastProgress', label: 'Last Known Progress / What Was Going Well', type: 'text', placeholder: 'e.g. Was down 8kg, had a great month 2' },
+      { id: 'possibleReason', label: 'Possible Reason for Going Quiet', type: 'select', options: ['Life got busy / work stress', 'Lost motivation', 'Not seeing results', 'Financial reasons', 'Travel or health issue', 'Unknown'] }
+    ],
+    prompt: (v) => `You are Alaa Rabbat's AI coaching assistant. Generate a re-engagement message for ${v.clientName}.
+
+SITUATION: ${v.weeksMissing}
+LAST PROGRESS: ${v.lastProgress}
+POSSIBLE REASON: ${v.possibleReason}
+
+Generate TWO versions:
+
+VERSION 1 — WhatsApp message (short, conversational, under 120 words):
+Warm check-in from Alaa. No guilt. Reference their last progress (${v.lastProgress}). Ask one open question. No pressure. Feels like a message from a friend who noticed they went quiet.
+
+VERSION 2 — Longer follow-up if no reply after 3 days (under 200 words):
+More honest. Acknowledge they may be going through something. Reference what they've already achieved. Offer an adjustment (change programme intensity, pause, restructure). One clear easy next step. 
+
+Rules for both:
+- Never guilt-trip or make them feel bad
+- Never pressure them to pay
+- Always reference something specific they achieved
+- Give them an easy out that keeps them connected (e.g. "Even if you just check in once a week for now, I'm here")
+- End with genuine warmth — Alaa wants them to succeed
+
+Sign off: Alaa | WhatsApp: +971 52 883 9230`,
+    framework: [
+      { title: 'Why Clients Go Quiet', body: 'Life disruption (80%), lost motivation (15%), financial pressure (5%). Most clients who go quiet are not angry — they are embarrassed. The right re-engagement message removes the embarrassment and gives them permission to come back.' },
+      { title: 'The No-Pressure Approach', body: 'Never mention payment in a re-engagement message. Never guilt-trip. Reference their progress and ask one gentle question. This approach recovers 40-60% of clients who would otherwise have cancelled quietly.' },
+      { title: 'Offer the Adjustment', body: 'Many clients pause because the current plan feels too hard given their life situation. Offering to adjust (lighter programme, nutrition only, once-weekly check-in) shows flexibility and often keeps them from cancelling entirely.' }
+    ]
+  },
+
+
+  // ══════════════════════════════
+  // CONTENT
+  // ══════════════════════════════
+  {
+    id: 'instagram-caption',
+    title: 'Instagram Caption',
+    category: 'content',
+    icon: 'I',
+    desc: 'Generate scroll-stopping Instagram captions in Alaa\'s voice — transformation posts, educational content, motivational posts, and client results.',
+    tags: ['Instagram', 'Caption', 'Reels', 'Engagement'],
+    fields: [
+      { id: 'postType', label: 'Post Type', type: 'select', options: ['Client transformation result', 'Educational / fitness tip', 'Motivational / mindset', 'Personal training content (BTS)', 'Programme promotion', 'Myth-busting', 'Q&A / engagement post'] },
+      { id: 'topic', label: 'Topic / What the Post is About', type: 'text', placeholder: 'e.g. Client lost 12kg in 10 weeks, or "why the scale lies"' },
+      { id: 'hook', label: 'Hook Style', type: 'select', options: ['Bold claim / statement', 'Curiosity gap', 'Relatable pain point', 'Shocking statistic', 'Story opener', 'Direct question'] },
+      { id: 'cta', label: 'CTA Goal', type: 'select', options: ['Save this post', 'Comment below', 'DM me for coaching', 'Book a free call', 'Follow for more', 'Share with someone who needs this'] }
+    ],
+    prompt: (v) => `You are Alaa Rabbat's social media content writer. Generate an Instagram caption in Alaa's exact voice.
+
+ALAA'S VOICE: Direct, honest, zero fluff. Results-focused. Warm but no-nonsense. Speaks to people who are serious about changing their body. Uses specific numbers. Never motivational poster language.
+INSTAGRAM: @alaa.rabbat | 171K followers | Online fitness coach & nutritionist
+
+POST TYPE: ${v.postType}
+TOPIC: ${v.topic}
+HOOK STYLE: ${v.hook}
+CTA GOAL: ${v.cta}
+
+Generate:
+
+OPTION A — Short version (under 150 words):
+Hook line (first 1-2 lines — must stop the scroll)
+Body (3-5 sentences — the value or story)
+CTA: ${v.cta}
+Hashtags: 10-12 relevant hashtags (mix of niche + broad fitness)
+
+OPTION B — Long version (200-300 words, better for saves and reach):
+Strong hook
+Story or educational content with specific detail
+The point / lesson
+CTA: ${v.cta}
+Hashtags: 12-15 hashtags
+
+REEL HOOK (bonus — 1 line for the first 3 seconds of video):
+One sentence to say to camera that stops the scroll immediately.
+
+Rules:
+- Never start with "I" — leads with the hook
+- Use short paragraphs / line breaks for readability
+- At least one specific number in the post
+- Alaa's CTA is always direct — "DM me" not "feel free to reach out"`,
+    framework: [
+      { title: 'The 3-Second Hook Rule', body: 'The first 1-2 lines decide everything. If the hook doesn\'t stop the scroll, nothing else matters. Best hooks: bold claim ("Most personal trainers are wrong about this"), pain point ("You\'ve been going to the gym for 6 months. Still look the same."), or curiosity ("I lost 8kg without touching cardio. Here\'s what I changed.")' },
+      { title: 'Specificity = Credibility', body: '"A client lost weight" is ignored. "A client lost 12kg in 10 weeks, going from 88kg to 76kg, training 4x/week" gets saved and shared. Always include the specific number, the timeframe, and the starting point.' },
+      { title: 'Content Pillar Split for @alaa.rabbat', body: 'Transformation proof (35%) — before/afters, client results. Educational (30%) — nutrition tips, training myths, how-tos. Personal/BTS (20%) — your training, your story. Promotional (15%) — programme launches, spots available.' }
+    ]
+  },
+
+  {
+    id: 'reel-script',
+    title: 'Reel Script',
+    category: 'content',
+    icon: 'R',
+    desc: 'Write a complete Reel script for Alaa — hook, talking points, transitions, and CTA. Optimised for TikTok and Instagram Reels.',
+    tags: ['Reels', 'TikTok', 'Script', 'Video'],
+    fields: [
+      { id: 'topic', label: 'Reel Topic', type: 'text', placeholder: 'e.g. "3 nutrition mistakes keeping you from losing weight"' },
+      { id: 'duration', label: 'Target Length', type: 'select', options: ['30 seconds', '45 seconds', '60 seconds', '90 seconds'] },
+      { id: 'style', label: 'Reel Style', type: 'select', options: ['Talking to camera (educational)', 'Voiceover on training footage', 'Before/after reveal', 'Myth vs truth split', 'Day-in-the-life BTS', 'Client transformation story'] },
+      { id: 'goal', label: 'Goal of This Reel', type: 'select', options: ['Grow followers', 'Generate DMs for coaching', 'Drive to free 15-min call', 'Build trust / authority', 'Viral reach'] }
+    ],
+    prompt: (v) => `You are Alaa Rabbat's content writer. Write a complete Reel script.
+
+TOPIC: ${v.topic}
+LENGTH: ${v.duration}
+STYLE: ${v.style}
+GOAL: ${v.goal}
+ALAA'S VOICE: Direct, confident, no fluff, warm. Online fitness coach & nutritionist. @alaa.rabbat.
+
+Generate:
+
+REEL SCRIPT — ${v.topic.toUpperCase()}
+
+HOOK (0-3 seconds):
+[Exact words to say OR text overlay for the first 3 seconds. Must stop the scroll immediately.]
+
+SECTION 1 (3-15 seconds):
+[Talking point 1 — specific, valuable]
+[Visual/transition note]
+
+SECTION 2 (15-30 seconds):
+[Talking point 2]
+[Visual/transition note]
+
+SECTION 3 (30-${v.duration === '30 seconds' ? '30' : '45'} seconds):
+[Talking point 3 — the most valuable insight]
+[Visual/transition note]
+
+${v.duration !== '30 seconds' ? `SECTION 4 (45-60 seconds):
+[The payoff / the surprising insight]
+[Visual/transition note]
+
+` : ''}CTA (last 3-5 seconds):
+[Exact CTA line based on goal: ${v.goal}]
+[On-screen text suggestion]
+
+TEXT OVERLAYS: (for the video editor)
+List 5-7 text overlay options for key moments
+
+THUMBNAIL CONCEPT:
+One sentence describing the perfect thumbnail image
+
+CAPTION HOOK (first line of the Instagram/TikTok caption):
+One line that continues the video's hook`,
+    framework: [
+      { title: 'Reel Structure for Maximum Retention', body: 'Hook (0-3s) → Problem (3-10s) → Solution (10-40s) → Proof (40-55s) → CTA (55-60s). Pattern interrupts every 15-20 seconds keep retention above 60%. TikTok and Reels both reward completion rate — shorter and punchy always beats long and detailed.' },
+      { title: 'Best Performing Reel Topics for Fitness Coaches', body: '"3 mistakes keeping you from losing weight" / "I tried X for 30 days — here\'s what happened" / "Why the scale went up even though you\'re eating less" / "What 12 weeks of coaching actually looks like" / "The exercise most people skip that builds the most muscle"' }
+    ]
+  },
+
+  {
+    id: 'content-calendar',
+    title: '30-Day Content Calendar',
+    category: 'content',
+    icon: 'C',
+    desc: 'Generate a full 30-day Instagram content calendar for @alaa.rabbat — 30 posts with captions, formats, and hashtags ready for Notion.',
+    tags: ['Content Calendar', 'Instagram', '30 Days', 'Planning'],
+    fields: [
+      { id: 'focus', label: 'Month\'s Main Focus', type: 'select', options: ['Growing followers', 'Generating coaching enquiries', 'Launching a new programme', 'Building trust / authority', 'Balanced mix'] },
+      { id: 'postsPerWeek', label: 'Posts Per Week', type: 'select', options: ['4 posts/week', '5 posts/week', '7 posts/week (daily)'] },
+      { id: 'specialEvents', label: 'Anything Special This Month?', type: 'text', placeholder: 'e.g. Ramadan, programme launch, new client results to share' }
+    ],
+    prompt: (v) => `You are Alaa Rabbat's content strategist. Generate a 30-day Instagram content calendar.
+
+ACCOUNT: @alaa.rabbat | Online Fitness Coach & Nutritionist | 171K followers
+MONTH FOCUS: ${v.focus}
+FREQUENCY: ${v.postsPerWeek}
+SPECIAL: ${v.specialEvents || 'None'}
+
+CONTENT PILLARS:
+- Transformation Proof (35%) — client results, before/afters, wins
+- Education (30%) — nutrition tips, training myths, how-tos
+- Personal/BTS (20%) — Alaa's training, story, behind the scenes
+- Promotional (15%) — programme spots, free call CTA
+
+Generate all 30 posts in Notion-ready format:
+
+Post number: [1-30]
+Date: [Day + Week e.g. "Monday Week 1"]
+Pillar: [Proof / Education / Personal / Promotional]
+Format: [Reel / Carousel / Static / Story]
+Topic: [What the post is about]
+Hook: [First line — must stop the scroll]
+Caption: [Full caption, ready to post, including line breaks]
+CTA: [What to do]
+Hashtags: [10-12 relevant hashtags]
+Visual notes: [What to film or photograph]
+
+Make every caption in Alaa's direct, results-focused voice. Every post should have a specific number or fact. Include at least 8 Reels in the 30 posts.`,
+    framework: [
+      { title: 'The 35/30/20/15 Content Split', body: 'Proof (35%): client results, before/afters — highest engagement in fitness. Education (30%): tips, myths, how-tos — builds authority and saves. Personal (20%): your story, training, BTS — builds connection and trust. Promotional (15%): never lead with offers until trust is established.' },
+      { title: 'Batching vs Daily Creation', body: 'Create all month\'s content in 2-3 sessions rather than daily. Batch by pillar: film all Reels on one day, create all carousels on another. This saves 4-6 hours per week and ensures quality doesn\'t drop when life gets busy.' }
+    ]
+  },
+
+  {
+    id: 'email-sequence',
+    title: 'Email Welcome Sequence',
+    category: 'content',
+    icon: 'E',
+    desc: 'Write a 5-email nurture sequence for new leads who downloaded a free programme or signed up for updates — converting them to paid clients over 7 days.',
+    tags: ['Email', 'Nurture', 'Automation', 'Lead Conversion'],
+    fields: [
+      { id: 'leadSource', label: 'Where the Lead Came From', type: 'select', options: ['Downloaded a free training programme', 'Signed up from the website', 'From Instagram DM conversation', 'From a free 15-min call who didn\'t sign up'] },
+      { id: 'goal', label: 'Sequence Goal', type: 'select', options: ['Book a free 15-min call', 'Sign up for 1:1 Transformation Coaching', 'Sign up for Training Blueprint (€59)'] },
+      { id: 'tone', label: 'Email Tone', type: 'select', options: ['Warm and personal', 'Direct and motivational', 'Educational and helpful'] }
+    ],
+    prompt: (v) => `You are Alaa Rabbat's email copywriter. Write a 5-email nurture sequence.
+
+LEAD SOURCE: ${v.leadSource}
+SEQUENCE GOAL: ${v.goal}
+TONE: ${v.tone}
+ALAA'S BRAND: Direct, warm, results-focused. Certified fitness trainer & nutritionist. 500+ clients. @alaa.rabbat.
+
+Generate all 5 emails:
+
+For each email:
+SUBJECT LINE: (+ 1 A/B variant)
+PREVIEW TEXT: (under 90 chars)
+SEND TIMING: (e.g. Day 0, Day 2, Day 4...)
+EMAIL BODY: (full, ready to send)
+PSYCHOLOGICAL PRINCIPLE: (why this email is structured this way)
+
+EMAIL 1 (Day 0 — immediate):
+Deliver the value (${v.leadSource}). Warm welcome. One clear next step. Short.
+
+EMAIL 2 (Day 2):
+Educational value — one specific tip related to their goal. No pitch. Pure value.
+
+EMAIL 3 (Day 4):
+Social proof — a client result with specific numbers. Bridge to how they got there.
+
+EMAIL 4 (Day 6):
+Address the main objection. Introduce the offer: ${v.goal}.
+
+EMAIL 5 (Day 7):
+Last chance energy. Specific reason to act now. Direct CTA.
+
+End with a SEQUENCE OVERVIEW TABLE: Email | Subject | Day | Goal | Hook
+Sign: Alaa Rabbat | alaarabbat.com | @alaa.rabbat`,
+    framework: [
+      { title: 'The 5-Email Nurture Structure', body: 'Email 1: Deliver + welcome. Email 2: Pure value, no pitch. Email 3: Social proof. Email 4: Handle objection + introduce offer. Email 5: Urgency + clear CTA. Give value 3 times before asking for anything.' },
+      { title: 'Subject Line Formula', body: 'Curiosity: "Why your workouts aren\'t working (it\'s not what you think)" > Direct benefit: "Lose your first 5kg in 4 weeks" > Personal: "Quick question, [name]". Test curiosity first — opens the conversation without commitment.' }
+    ]
+  },
+
+
+  // ══════════════════════════════
+  // SALES
+  // ══════════════════════════════
+  {
+    id: 'dm-script',
+    title: 'Instagram DM Script',
+    category: 'sales',
+    icon: 'D',
+    desc: 'Write natural, non-salesy Instagram DM scripts for different situations — converting enquiries, following up on story replies, and outreach to warm followers.',
+    tags: ['DM', 'Instagram', 'Sales', 'Conversion'],
+    fields: [
+      { id: 'situation', label: 'DM Situation', type: 'select', options: ['Someone enquired about coaching', 'Someone replied to a story', 'Someone viewed pricing but didn\'t message', 'Following up after 48 hours of no reply', 'Warm follower who engages but never messaged', 'Someone asked "how much is it?"'] },
+      { id: 'goal', label: 'Goal of the DM', type: 'select', options: ['Book a free 15-min call', 'Send them the coaching details', 'Understand their goal first', 'Close the sale directly'] },
+      { id: 'context', label: 'Any Context About Them', type: 'text', placeholder: 'e.g. They commented on a transformation post, they\'re based in Dubai, they mentioned they want to lose weight' }
+    ],
+    prompt: (v) => `You are Alaa Rabbat's sales assistant. Write Instagram DM scripts.
+
+SITUATION: ${v.situation}
+GOAL: ${v.goal}
+CONTEXT: ${v.context || 'No specific context'}
+ALAA'S VOICE: Direct, warm, no pressure. Feels like a real message — not a script.
+
+Generate 3 DM script options:
+
+OPTION A — Direct and brief (under 60 words):
+Gets to the point fast. Good for high-intent enquiries.
+
+OPTION B — Curious and conversational (under 100 words):
+Opens with a question about their goal. Builds rapport before any mention of coaching.
+
+OPTION C — Value-led (under 120 words):
+Leads with a useful insight or tip related to their situation, then transitions naturally to the offer.
+
+For each option include:
+- The full DM text (ready to send, no placeholders)
+- Tone note (why this approach works)
+- Follow-up message to send if no reply after 48 hours
+
+Rules:
+- Never open with "Hi, I noticed you..." — feels automated
+- Never list prices in the first DM
+- Always end with a question, never a statement
+- Alaa's goal is a conversation, not a pitch`,
+    framework: [
+      { title: 'The 3-DM Conversion Sequence', body: 'DM 1: One genuine question about their goal. DM 2 (if no reply after 48hrs): Share a relevant tip or result. DM 3 (if no reply after 5 days): Brief and honest — "Last message, didn\'t want to keep bothering you — if your goal is still X, I\'m here." Most conversions happen in DM 2 or 3.' },
+      { title: 'Never Lead with Price', body: 'When someone asks "how much?", never just reply with the number. Ask one question first: "Before I send the details, what\'s your main goal right now?" This qualifies them AND makes the price feel contextual rather than arbitrary.' }
+    ]
+  },
+
+  {
+    id: 'objection-handler',
+    title: 'Sales Objection Handler',
+    category: 'sales',
+    icon: 'O',
+    desc: 'Get word-for-word responses to the most common objections Alaa faces — "too expensive", "I\'ll think about it", "I\'m already doing something", and more.',
+    tags: ['Objections', 'Sales', 'Pricing', 'Conversion'],
+    fields: [
+      { id: 'objection', label: 'The Objection', type: 'select', options: ['"It\'s too expensive" / price objection', '"I need to think about it"', '"I\'ll start next month"', '"I can do it myself / I have YouTube"', '"I\'m already working with someone"', '"I don\'t have time"', '"I\'m not sure it will work for me"', '"Can I get a discount?"'] },
+      { id: 'channel', label: 'Where This Happens', type: 'select', options: ['Instagram DM', 'WhatsApp', 'After a free call', 'In comments on a post'] },
+      { id: 'package', label: 'Package Being Discussed', type: 'select', options: ['1:1 Transformation Coaching (€199/mo)', 'Elite Transformation Coaching (€449/mo)', 'Training Blueprint (€59)'] }
+    ],
+    prompt: (v) => `You are Alaa Rabbat's sales coach. Write responses to this coaching objection.
+
+OBJECTION: ${v.objection}
+CHANNEL: ${v.channel}
+PACKAGE: ${v.package}
+ALAA'S STYLE: Direct, warm, confident. Never apologises for his price. Never desperate. Empathises then reframes.
+
+Generate 3 response options:
+
+RESPONSE A — Empathise + Reframe (recommended for most situations):
+Acknowledge the objection genuinely. Reframe with ROI or logic. End with a question.
+
+RESPONSE B — Social proof response:
+Handle the objection with a client example or specific result. "I had a client who felt the same way..."
+
+RESPONSE C — Direct and confident:
+Short, honest, no apology for the price or product. For when you want to qualify quickly.
+
+For each response:
+- Full text (ready to send in DM or say on call)
+- One follow-up if they go quiet after
+- The psychological principle being used
+
+NEVER:
+- Apologise for the price
+- Offer a discount (unless that's explicitly Alaa's strategy)
+- Sound desperate or pushy
+- Use "I understand your concern" — too corporate`,
+    framework: [
+      { title: 'The ROI Reframe for Price Objections', body: '"€199/month sounds like a lot until you realise that\'s €6.60/day — less than a coffee and a sandwich. One month of coaching at this price gives you 4 weeks of personalised training, nutrition, weekly check-ins, and WhatsApp access. What does another month of the same results cost you?" Never defend the price — contextualise it.' },
+      { title: '"I\'ll Think About It" = Missing Information', body: '"I\'ll think about it" means they have an unanswered question. The right response: "Of course — what\'s the one thing that would make this a clear yes for you?" This surfaces the real objection and gives you something to address.' }
+    ]
+  },
+
+  {
+    id: 'programme-launch',
+    title: 'Programme Launch Campaign',
+    category: 'sales',
+    icon: 'L',
+    desc: 'Build a 2-week launch campaign when Alaa opens coaching spots — Instagram posts, Stories sequence, DM scripts, and urgency close.',
+    tags: ['Launch', 'Spots', 'Campaign', 'Urgency'],
+    fields: [
+      { id: 'spots', label: 'How Many Spots Available', type: 'text', placeholder: 'e.g. 5' },
+      { id: 'package', label: 'Package Being Launched', type: 'select', options: ['1:1 Transformation Coaching', 'Elite Transformation Coaching', 'Training Blueprint', 'All packages'] },
+      { id: 'deadline', label: 'Deadline / Close Date', type: 'text', placeholder: 'e.g. Friday 4th April, end of the month' },
+      { id: 'hook', label: 'Launch Hook / What Makes This Special', type: 'text', placeholder: 'e.g. First time opening spots in 2 months, new programme format, before Ramadan' }
+    ],
+    prompt: (v) => `You are Alaa Rabbat's launch strategist. Build a 2-week coaching launch campaign.
+
+SPOTS: ${v.spots} spots available
+PACKAGE: ${v.package}
+DEADLINE: ${v.deadline}
+HOOK: ${v.hook}
+ALAA: @alaa.rabbat | 171K followers | alaarabbat.com | WhatsApp: +971 52 883 9230
+
+Generate a complete launch campaign:
+
+PRE-LAUNCH (Days 1-7):
+3 Instagram posts to warm the audience — topics, hooks, and full captions. No mention of spots yet — just value and proof.
+2 Story ideas per day for the pre-launch week (just descriptions)
+
+LAUNCH DAY (Day 8):
+The announcement post — full caption announcing spots are open
+Stories sequence for launch day (5 frames with text overlay copy)
+DM to send to people who've been enquiring
+
+DAYS 9-13 (Build urgency):
+2 posts — one proof post, one educational — with spots countdown woven in naturally
+Daily Story frame ideas
+
+CLOSE DAY (Day 14 — ${v.deadline}):
+Final post: "Last chance" — full caption
+Final Story sequence (4 frames)
+DM to people who clicked but didn't sign up
+
+THROUGHOUT THE LAUNCH:
+3 DM scripts for different lead stages (cold enquiry, warm interested, hot — just needs the push)
+WhatsApp broadcast message to send to existing network
+
+Tone: Excited but not desperate. Scarcity is real (${v.spots} spots). Never fake urgency.`,
+    framework: [
+      { title: 'The 3-Phase Launch Structure', body: 'Phase 1 (Pre-launch): Warm the audience with value and proof — no mention of selling. Phase 2 (Launch week): Announce, build momentum, share testimonials. Phase 3 (Close): Real urgency, last chance energy, personal outreach to warm leads.' },
+      { title: 'Real Scarcity vs Fake Scarcity', body: 'Only launch with a number of spots you actually intend to cap. Alaa\'s cap (5-8 spots/month) is real — client quality requires it. Real scarcity converts. Fake "only 3 spots left!" that refills immediately destroys trust permanently.' }
+    ]
+  },
+
+
+  // ══════════════════════════════
+  // GROWTH
+  // ══════════════════════════════
+  {
+    id: 'referral-message',
+    title: 'Client Referral Message',
+    category: 'growth',
+    icon: 'R',
+    desc: 'Generate a personalised message Alaa sends to happy clients asking them to refer friends — pre-written and ready to forward.',
+    tags: ['Referrals', 'Growth', 'Word of Mouth', 'Client Message'],
+    fields: [
+      { id: 'clientName', label: 'Client Name', type: 'text', placeholder: 'e.g. Ahmed' },
+      { id: 'result', label: 'Their Key Result So Far', type: 'text', placeholder: 'e.g. Down 10kg in 8 weeks, hit a new PB' },
+      { id: 'timing', label: 'Why Now is a Good Time to Ask', type: 'select', options: ['Just had a great monthly report', 'Just shared a before/after', 'Just hit a milestone / PB', 'At the 8-week mark', 'After a compliment or positive message'] },
+      { id: 'incentive', label: 'Referral Incentive (optional)', type: 'text', placeholder: 'e.g. One free week, AED 200 credit, or none' }
+    ],
+    prompt: (v) => `You are Alaa Rabbat's assistant. Write a referral request message for ${v.clientName}.
+
+CLIENT: ${v.clientName}
+RESULT: ${v.result}
+TIMING: ${v.timing}
+INCENTIVE: ${v.incentive || 'No specific incentive — pure goodwill ask'}
+
+Generate TWO versions:
+
+VERSION 1 — WhatsApp message FROM ALAA TO ${v.clientName} (asking for the referral):
+Warm, personal, no pressure. Reference their result (${v.result}). The ask is natural, not transactional. Short — under 100 words.
+
+VERSION 2 — Pre-written message ${v.clientName} can FORWARD to a friend:
+A message already written as if ${v.clientName} is sending it. Includes what they've achieved, what Alaa's coaching is, and a direct link/contact. Under 120 words. Should feel like a genuine personal recommendation.
+
+Also generate:
+One Instagram caption ${v.clientName} could post as a tag/mention if they wanted to share publicly.
+
+${v.incentive ? `Include the referral incentive naturally: ${v.incentive}` : ''}
+
+Rules: Never make it feel like a transaction. The best referrals come from genuine enthusiasm, not incentives.`,
+    framework: [
+      { title: 'When to Ask for Referrals', body: 'Ask at peak happiness: right after a great result, a milestone, or a positive message from the client. Never during a tough week. The right timing gets a yes 3x more often than the right message at the wrong time.' },
+      { title: 'The Pre-Written Forward Strategy', body: 'Most clients want to refer but don\'t know what to say. Remove the barrier completely by writing the message for them. They just forward it. Conversion rate on forwarded messages is 60-80% higher than a cold referral.' }
+    ]
+  },
+
+  {
+    id: 'testimonial-request',
+    title: 'Testimonial Request',
+    category: 'growth',
+    icon: 'T',
+    desc: 'Generate a personalised message asking a client for a testimonial — with guiding questions so they write something specific and powerful, not just "great coach!"',
+    tags: ['Testimonials', 'Social Proof', 'Review', 'Google'],
+    fields: [
+      { id: 'clientName', label: 'Client Name', type: 'text', placeholder: 'e.g. Maya' },
+      { id: 'result', label: 'Their Main Result', type: 'text', placeholder: 'e.g. Lost 14kg in 12 weeks' },
+      { id: 'platform', label: 'Where the Testimonial Should Go', type: 'select', options: ['Instagram story / tag', 'Google review', 'Written quote for website', 'Video testimonial (WhatsApp)', 'LinkedIn recommendation', 'Any / wherever they\'re comfortable'] },
+      { id: 'weeksMark', label: 'How Long They\'ve Been Coaching', type: 'text', placeholder: 'e.g. 8 weeks, 3 months' }
+    ],
+    prompt: (v) => `You are Alaa Rabbat's assistant. Generate a testimonial request system for ${v.clientName}.
+
+CLIENT: ${v.clientName}
+RESULT: ${v.result}
+PLATFORM: ${v.platform}
+TIME WITH ALAA: ${v.weeksMark}
+
+Generate:
+
+1. OUTREACH MESSAGE (WhatsApp, under 100 words):
+Warm, specific, low-pressure. Reference their result (${v.result}). The ask feels like sharing good news, not a favour.
+
+2. GUIDING QUESTIONS (to send if they say yes but don't know what to write):
+5 questions that will produce a specific, credible testimonial:
+- What were you struggling with before you started?
+- What made you decide to work with Alaa?
+- What has changed since starting?
+- What specific result are you most proud of?
+- Who would you recommend this coaching to?
+
+3. PRE-WRITTEN TEMPLATE (optional — they can edit):
+A draft testimonial written in first person that ${v.clientName} can edit and use. Based on their result (${v.result}). 80-100 words. Includes: before, after, what made the difference, recommendation.
+
+4. PLATFORM-SPECIFIC INSTRUCTIONS:
+Exactly how to post on: ${v.platform}
+
+Rules: Specific testimonials with numbers convert 10x better than generic praise. Coach the client to include their result, their starting point, and a timeframe.`,
+    framework: [
+      { title: 'The Best Testimonial Formula', body: '"Before I worked with Alaa, I [struggled with X]. After [timeframe], I [specific result]. What made the difference was [specific coaching element]. I\'d recommend Alaa to anyone who wants [outcome] and is ready to put in the work." Specific, structured, credible.' },
+      { title: 'When to Ask', body: 'The perfect moment: right after a great month report, right after they share a result unprompted, or at the 8-12 week mark when results are undeniable. Never in week 1-2 — too early. Never when results have stalled.' }
+    ]
+  },
+
+  {
+    id: 'google-seo-blog',
+    title: 'SEO Blog Post',
+    category: 'growth',
+    icon: 'B',
+    desc: 'Write an SEO-optimised blog post for alaarabbat.com targeting keywords potential clients search — builds Google ranking and drives organic traffic.',
+    tags: ['SEO', 'Blog', 'Google', 'Organic Traffic'],
+    fields: [
+      { id: 'keyword', label: 'Target Keyword', type: 'text', placeholder: 'e.g. online fitness coach UAE, how to lose weight fast, best online personal trainer' },
+      { id: 'wordCount', label: 'Article Length', type: 'select', options: ['800-1,000 words (quick read)', '1,200-1,500 words (standard)', '2,000+ words (comprehensive guide)'] },
+      { id: 'angle', label: 'Content Angle', type: 'select', options: ['How-to guide', 'Common mistakes article', 'Expert opinion / opinion piece', 'Client case study', 'Comparison / vs article', 'Ultimate guide'] }
+    ],
+    prompt: (v) => `You are Alaa Rabbat's SEO content writer. Write a blog post for alaarabbat.com.
+
+TARGET KEYWORD: ${v.keyword}
+LENGTH: ${v.wordCount}
+ANGLE: ${v.angle}
+AUTHOR: Alaa Rabbat — Certified Fitness Trainer & Nutritionist | 8+ years | 500+ clients | alaarabbat.com
+
+Generate:
+
+TITLE TAG (under 60 chars, keyword first):
+META DESCRIPTION (under 155 chars, includes keyword + CTA):
+
+FULL ARTICLE:
+H1: [Keyword-optimised, compelling headline]
+Introduction (150 words): Hook the reader, introduce the topic, preview the value.
+[H2 sections — structure the article with clear H2 headings]
+[Content throughout — use keyword naturally 3-5 times, include related terms]
+Conclusion (100 words): Summary + CTA to book a free call or visit the coaching page
+
+CALL TO ACTION (end of article):
+"Ready to transform your body with a personalised programme? Book a free 15-minute call with Alaa today — no commitment, just clarity."
+Link: alaarabbat.com
+
+SEMANTIC KEYWORDS TO INCLUDE:
+10 related terms to weave in naturally
+
+INTERNAL LINKING SUGGESTIONS:
+3 places to link to other pages on alaarabbat.com
+
+Alaa's voice: Expert but approachable. Use specific numbers and examples. Never generic.`,
+    framework: [
+      { title: 'Why Alaa Needs Blog Content', body: 'alaarabbat.com currently ranks for zero keywords. Every potential client searching "online fitness coach Dubai" or "how to lose weight fast" finds a competitor. One well-optimised blog post per week for 3 months can generate 500-2,000 organic visits/month — completely free leads.' },
+      { title: 'Best Keywords for a Fitness Coach in UAE', body: '"Online personal trainer UAE" / "online fitness coach Dubai" / "how to lose weight fast" / "best online fitness programme" / "online nutrition coach" / "personalised workout plan online". Start with low-competition long-tail keywords and build authority before targeting high-volume terms.' }
+    ]
+  },
+
+
+  // ══════════════════════════════
+  // SYSTEMS
+  // ══════════════════════════════
+  {
+    id: 'travel-programme',
+    title: 'Travel Training Plan',
+    category: 'system',
+    icon: 'T',
+    desc: 'When a client is travelling, generate a hotel/home workout plan and nutrition strategy for eating out — so they never use travel as an excuse to stop.',
+    tags: ['Travel', 'Hotel Workout', 'Nutrition', 'Flexibility'],
+    fields: [
+      { id: 'clientName', label: 'Client Name', type: 'text', placeholder: 'e.g. Khalid' },
+      { id: 'duration', label: 'How Long They\'re Travelling', type: 'text', placeholder: 'e.g. 10 days, 3 weeks' },
+      { id: 'destination', label: 'Destination', type: 'text', placeholder: 'e.g. London, New York, Thailand' },
+      { id: 'equipment', label: 'Equipment Available', type: 'select', options: ['Hotel gym (basic equipment)', 'Hotel room only (bodyweight)', 'Airbnb with no gym', 'Has resistance bands', 'Access to a gym nearby'] },
+      { id: 'goal', label: 'Their Current Goal', type: 'select', options: ['Fat loss — maintain deficit', 'Muscle building — maintain gains', 'Just maintain and stay active'] }
+    ],
+    prompt: (v) => `You are Alaa Rabbat's coaching assistant. Generate a travel training and nutrition plan for ${v.clientName}.
+
+CLIENT: ${v.clientName}
+DURATION: ${v.duration}
+DESTINATION: ${v.destination}
+EQUIPMENT: ${v.equipment}
+GOAL: ${v.goal}
+
+Generate a complete travel plan:
+
+TRAVEL TRAINING PLAN — ${v.clientName.toUpperCase()} | ${v.destination}
+
+TRAINING APPROACH:
+Brief note from Alaa on what the goal is during travel — maintain, not gain. Progress is paused, regression is prevented.
+
+WORKOUT PROGRAMME (${v.equipment}):
+3-4 sessions per week. Each session under 45 minutes.
+For each session: Session focus + exercise list with sets/reps + coaching notes.
+Make exercises specific to ${v.equipment}.
+
+NUTRITION STRATEGY FOR ${v.destination}:
+- Daily calorie target (slight adjustment for lower activity)
+- Protein target (maintain this above all else)
+- How to estimate calories eating out
+- Best food choices at restaurants in ${v.destination} (local food + international)
+- The rule for social dinners / drinking situations
+- How to get back on track the next morning
+
+ALAA'S TRAVEL MESSAGE:
+Short personal note from Alaa. Travel doesn't mean stopping. Consistency is the whole game. Reference ${v.clientName}'s goal (${v.goal}).
+
+WHAT TO SEND ALAA:
+Simple weekly check-in format for during travel — weight once a week, 1 update message. Low admin.`,
+    framework: [
+      { title: 'The Travel Non-Negotiables', body: 'For fat loss clients: hit protein target + do 3 sessions minimum. Everything else is flexible. For muscle building: hit protein + lift 3-4x. Calories can increase slightly. Maintenance beats regression every time — a client who trains 3x on holiday loses nothing. A client who stops for 2 weeks loses momentum and motivation.' }
+    ]
+  },
+
+  {
+    id: 'plateau-breaker',
+    title: 'Plateau Breaker Protocol',
+    category: 'system',
+    icon: 'P',
+    desc: 'When a client\'s weight has stalled for 2+ weeks — generate a diagnostic analysis and 3 specific adjustment options to break through.',
+    tags: ['Plateau', 'Progress Stall', 'Adjustment', 'Problem Solving'],
+    fields: [
+      { id: 'clientName', label: 'Client Name', type: 'text', placeholder: 'e.g. Rania' },
+      { id: 'weeksStalled', label: 'How Many Weeks Stalled', type: 'text', placeholder: 'e.g. 3 weeks at 71kg' },
+      { id: 'currentCalories', label: 'Current Calorie Target', type: 'text', placeholder: 'e.g. 1,600 kcal/day' },
+      { id: 'sessionsPerWeek', label: 'Sessions Per Week Currently', type: 'text', placeholder: 'e.g. 4 sessions' },
+      { id: 'compliance', label: 'Nutrition Compliance', type: 'select', options: ['Very good — tracking closely', 'Good — mostly hitting targets', 'Inconsistent — some weeks better than others', 'Poor — not really tracking'] },
+      { id: 'sleepStress', label: 'Sleep & Stress Levels', type: 'select', options: ['Good sleep, low stress', 'OK sleep, some stress', 'Poor sleep or high stress', 'Both poor sleep and high stress'] }
+    ],
+    prompt: (v) => `You are Alaa Rabbat's coaching assistant. Generate a plateau analysis for ${v.clientName}.
+
+CLIENT: ${v.clientName}
+WEEKS STALLED: ${v.weeksStalled}
+CURRENT CALORIES: ${v.currentCalories}
+SESSIONS/WEEK: ${v.sessionsPerWeek}
+NUTRITION COMPLIANCE: ${v.compliance}
+SLEEP & STRESS: ${v.sleepStress}
+
+Generate a plateau breaker report:
+
+PLATEAU ANALYSIS — ${v.clientName.toUpperCase()}
+
+WHAT'S HAPPENING:
+2-3 sentences explaining the science of why plateaus happen — normalise it. This is expected, not failure.
+
+LIKELY CAUSE (based on their data):
+Diagnose the most likely cause: calorie adaptation, poor compliance, stress/cortisol, insufficient training stimulus, or water retention. Be specific to their numbers.
+
+3 ADJUSTMENT OPTIONS:
+Present 3 different approaches — Alaa will choose one:
+
+Option A — Nutrition adjustment:
+[Specific change — exact calorie/macro adjustment]
+[Who this is best for]
+[Expected timeline to see movement]
+
+Option B — Training adjustment:
+[Specific change — add/change sessions or intensity]
+[Who this is best for]
+[Expected timeline]
+
+Option C — Lifestyle/recovery focus:
+[Address sleep/stress if relevant, deload week, maintenance calories]
+[Who this is best for]
+
+ALAA'S RECOMMENDATION:
+Based on ${v.clientName}'s specific data, which option and why. One clear directive.
+
+MESSAGE TO ${v.clientName.toUpperCase()}:
+A short, reassuring, honest message Alaa can send to the client explaining the situation and what they're changing. Under 100 words. Never makes the client feel like they failed.`,
+    framework: [
+      { title: 'Why Plateaus Are Normal', body: 'After 6-8 weeks of deficit, the body adapts: NEAT (non-exercise activity) drops, metabolic rate adjusts slightly, and glycogen/water fluctuations mask fat loss. A plateau after progress is evidence the approach has been working — the body is now adapted. The solution is a small, targeted adjustment — not a complete overhaul.' },
+      { title: 'The 3 Plateau Levers', body: 'Lever 1: Reduce calories by 150-200kcal. Lever 2: Add 1-2 cardio sessions or increase NEAT (steps). Lever 3: Take a 1-week diet break at maintenance (paradoxically often restarts fat loss). Pull one lever at a time and wait 2 weeks before pulling another.' }
+    ]
+  },
+
+  {
+    id: 'nutrition-swap',
+    title: 'Nutrition Swap List',
+    category: 'system',
+    icon: 'N',
+    desc: 'When a client says "I hate X" or "I can\'t eat Y" — generate 5 alternatives with the same macro profile so their nutrition plan stays on track.',
+    tags: ['Nutrition', 'Food Swaps', 'Flexibility', 'Client Support'],
+    fields: [
+      { id: 'clientName', label: 'Client Name', type: 'text', placeholder: 'e.g. Omar' },
+      { id: 'foodToSwap', label: 'Food They Can\'t / Won\'t Eat', type: 'text', placeholder: 'e.g. chicken breast, eggs, broccoli, brown rice' },
+      { id: 'reason', label: 'Reason', type: 'select', options: ['Doesn\'t like the taste', 'Allergy or intolerance', 'Religious / halal concern', 'Can\'t find it locally', 'Bored of eating it every day', 'Lifestyle / vegan / vegetarian'] },
+      { id: 'macroGoal', label: 'Their Macro Priority', type: 'select', options: ['High protein (fat loss / muscle building)', 'Balanced macros (recomp)', 'Lower carb approach', 'Higher carb (performance)'] }
+    ],
+    prompt: (v) => `You are Alaa Rabbat's nutrition assistant. Generate food swaps for ${v.clientName}.
+
+CLIENT: ${v.clientName}
+FOOD TO REPLACE: ${v.foodToSwap}
+REASON: ${v.reason}
+MACRO PRIORITY: ${v.macroGoal}
+
+Generate a nutrition swap guide:
+
+FOOD SWAP GUIDE — ${v.clientName.toUpperCase()}
+
+WHY THIS WORKS:
+1-2 sentences on flexible dieting — no food is mandatory, macros are what matter.
+
+5 ALTERNATIVES TO ${v.foodToSwap.toUpperCase()}:
+For each alternative:
+- Food name
+- Serving size to match the original's macros
+- Macros per serving (protein / carbs / fat / calories)
+- How to prepare it (simple, 1 sentence)
+- Why it works for ${v.macroGoal}
+
+QUICK COMPARISON TABLE:
+Original food vs 5 alternatives — protein / carbs / fat / calories side by side.
+
+ALAA'S NOTE:
+Short message Alaa can send: "${v.clientName}, no problem — here are 5 alternatives that hit the same macros. Pick whichever works for you and your plan stays on track." Under 60 words.`,
+    framework: [
+      { title: 'The Flexible Dieting Principle', body: 'No food is essential — macros are. Chicken breast can be replaced by turkey, white fish, Greek yoghurt, cottage cheese, or protein powder. The client hitting their targets with foods they enjoy will be 10x more consistent than the client forcing themselves to eat foods they hate.' }
+    ]
+  },
+
+  {
+    id: 'transformation-post',
+    title: 'Transformation Announcement',
+    category: 'system',
+    icon: 'T',
+    desc: 'When a client completes their transformation — generate a celebration document, Instagram post, and client message that they\'ll share everywhere.',
+    tags: ['Transformation', 'Results', 'Social Proof', 'Celebration'],
+    fields: [
+      { id: 'clientName', label: 'Client Name (or initials)', type: 'text', placeholder: 'e.g. Ahmed K. or just "Ahmed"' },
+      { id: 'duration', label: 'Duration of Coaching', type: 'text', placeholder: 'e.g. 12 weeks, 4 months' },
+      { id: 'startWeight', label: 'Starting Weight', type: 'text', placeholder: 'e.g. 95kg' },
+      { id: 'endWeight', label: 'End Weight', type: 'text', placeholder: 'e.g. 82kg' },
+      { id: 'otherResults', label: 'Other Results / Milestones', type: 'textarea', placeholder: 'e.g. New PB on bench press, went down 2 trouser sizes, sleeps better, has more energy', full: true },
+      { id: 'sharePermission', label: 'Client Sharing Permission', type: 'select', options: ['Full name + photos approved', 'First name only', 'Initials only — anonymous', 'Share the stats but no photos'] }
+    ],
+    prompt: (v) => `You are Alaa Rabbat's assistant. Generate a transformation announcement package for ${v.clientName}.
+
+CLIENT: ${v.clientName}
+DURATION: ${v.duration}
+START WEIGHT: ${v.startWeight} → END WEIGHT: ${v.endWeight} (change: ${(parseFloat(v.startWeight) - parseFloat(v.endWeight)).toFixed(1)}kg lost)
+OTHER RESULTS: ${v.otherResults}
+PERMISSION: ${v.sharePermission}
+
+Generate:
+
+1. INSTAGRAM POST — FROM ALAA (@alaa.rabbat):
+Full caption announcing ${v.clientName}'s transformation. Lead with the result (specific numbers). Tell the story briefly. What they came in with. What changed. What they leave with. Strong CTA at the end for people who want similar results.
+Hashtags: 15 fitness transformation hashtags.
+
+2. CELEBRATION MESSAGE — ALAA TO ${v.clientName.toUpperCase()} (WhatsApp):
+Personal, warm, proud coach energy. Reference their specific journey. What Alaa is most proud of (not just the weight — the habits, the consistency, the mindset). Under 150 words.
+
+3. CAPTION ${v.clientName.toUpperCase()} CAN POST (their own Instagram):
+Pre-written as if from the client's perspective. Their story, their experience with Alaa, the result. They just edit and post. Include @alaa.rabbat tag.
+
+All formats: specific numbers always. Never "great results" — always "lost 13kg in 12 weeks, from 95kg to 82kg."`,
+    framework: [
+      { title: 'Why Transformation Posts Are Your Best Marketing', body: 'One specific transformation post with real numbers generates more coaching enquiries than 10 educational posts. "Ahmed lost 13kg in 12 weeks with online coaching from @alaa.rabbat" answers the prospect\'s two key questions: "Does this work?" and "Does it work in my timeframe?" in one sentence.' }
+    ]
+  }
+
+];
+
+// ════════════════════════════════════════════
+// APP LOGIC
+// ════════════════════════════════════════════
+let activeSkill = null;
+let currentFilter = 'all';
+
+function catLabel(cat) {
+  const map = { client: 'Client Docs', content: 'Content', sales: 'Sales', growth: 'Growth', system: 'Systems' };
+  return map[cat] || cat;
+}
+
+function renderGrid(filter = 'all', search = '') {
+  const grid = document.getElementById('skillsGrid');
+  const filtered = SKILLS.filter(s => {
+    const matchCat = filter === 'all' || s.category === filter;
+    const matchSearch = !search || s.title.toLowerCase().includes(search) || s.desc.toLowerCase().includes(search) || s.tags.some(t => t.toLowerCase().includes(search));
+    return matchCat && matchSearch;
+  });
+
+  if (!filtered.length) {
+    grid.innerHTML = `<div class="no-results"><span>🔍</span><p>No skills found. Try a different search.</p></div>`;
+    return;
+  }
+
+  grid.innerHTML = filtered.map(s => `
+    <div class="skill-card" data-id="${s.id}">
+      <div class="card-header">
+        <div class="card-icon icon-${s.category}" style="font-family:'Bebas Neue',sans-serif;font-size:18px;color:var(--blue)">${s.icon}</div>
+        <span class="card-category cat-${s.category}">${catLabel(s.category)}</span>
+      </div>
+      <div class="card-title">${s.title}</div>
+      <div class="card-desc">${s.desc}</div>
+      <div class="card-tags">${s.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+      <div class="card-actions">
+        <button class="btn-generate" onclick="openModal('${s.id}','generate')">Generate Prompt</button>
+        <button class="btn-extract" onclick="openModal('${s.id}','extract')">Extract</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function openModal(id, tab = 'generate') {
+  activeSkill = SKILLS.find(s => s.id === id);
+  if (!activeSkill) return;
+
+  document.getElementById('modalTitle').textContent = activeSkill.title;
+  document.getElementById('modalSubtitle').textContent = activeSkill.desc.substring(0, 80) + '...';
+
+  const form = document.getElementById('formFields');
+  form.innerHTML = '';
+  let rowHtml = '';
+  activeSkill.fields.forEach((f, i) => {
+    if (f.full) {
+      if (rowHtml) { form.innerHTML += `<div class="form-row">${rowHtml}</div>`; rowHtml = ''; }
+      form.innerHTML += `<div class="form-row full"><div class="form-group">${fieldHtml(f)}</div></div>`;
+    } else {
+      rowHtml += `<div class="form-group">${fieldHtml(f)}</div>`;
+      if (rowHtml.split('form-group').length - 1 >= 2 || i === activeSkill.fields.length - 1) {
+        form.innerHTML += `<div class="form-row">${rowHtml}</div>`;
+        rowHtml = '';
+      }
+    }
+  });
+
+  document.getElementById('frameworkContent').innerHTML = activeSkill.framework.map(f => `
+    <div class="framework-block"><h4>${f.title}</h4><p>${f.body}</p></div>
+  `).join('');
+
+  document.getElementById('promptOutputWrap').style.display = 'none';
+  switchTab(tab);
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function fieldHtml(f) {
+  if (f.type === 'select') return `<label>${f.label}</label><select id="${f.id}"><option value="">Select...</option>${f.options.map(o => `<option value="${o}">${o}</option>`).join('')}</select>`;
+  if (f.type === 'textarea') return `<label>${f.label}</label><textarea id="${f.id}" placeholder="${f.placeholder || ''}"></textarea>`;
+  return `<label>${f.label}</label><input type="text" id="${f.id}" placeholder="${f.placeholder || ''}">`;
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function switchTab(name) {
+  document.querySelectorAll('.tab-btn').forEach((b, i) => {
+    b.classList.toggle('active', (i === 0 && name === 'generate') || (i === 1 && name === 'extract'));
+  });
+  document.getElementById('tab-generate').classList.toggle('active', name === 'generate');
+  document.getElementById('tab-extract').classList.toggle('active', name === 'extract');
+}
+
+function buildPrompt() {
+  if (!activeSkill) return;
+  const vals = {};
+  activeSkill.fields.forEach(f => {
+    const el = document.getElementById(f.id);
+    vals[f.id] = el ? (el.value || `[${f.label}]`) : `[${f.label}]`;
+  });
+  const prompt = activeSkill.prompt(vals);
+  document.getElementById('promptOutput').textContent = prompt;
+  document.getElementById('promptOutputWrap').style.display = 'block';
+  document.getElementById('promptOutputWrap').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function copyToClipboard(text, onSuccess) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(onSuccess).catch(() => fallbackCopy(text, onSuccess));
+  } else { fallbackCopy(text, onSuccess); }
+}
+
+function fallbackCopy(text, onSuccess) {
+  const ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0;';
+  document.body.appendChild(ta);
+  ta.focus(); ta.select();
+  try { document.execCommand('copy'); if (onSuccess) onSuccess(); } catch(e) {}
+  document.body.removeChild(ta);
+}
+
+function copyPrompt() {
+  const text = document.getElementById('promptOutput').textContent;
+  copyToClipboard(text, () => {
+    const btn = document.getElementById('copyPromptBtn');
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    showToast('Prompt copied!');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+function copyFramework() {
+  if (!activeSkill) return;
+  const text = activeSkill.framework.map(f => `${f.title}\n${f.body}`).join('\n\n');
+  copyToClipboard(text, () => showToast('Framework copied!'));
+}
+
+function downloadFramework() {
+  if (!activeSkill) return;
+  const text = `ALAA RABBAT COACHING — ${activeSkill.title.toUpperCase()}\n${'='.repeat(60)}\n\n` +
+    activeSkill.framework.map(f => `${f.title}\n${'-'.repeat(40)}\n${f.body}`).join('\n\n') +
+    '\n\n— alaarabbat.com';
+  const blob = new Blob([text], { type: 'text/plain' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = `alaa-rabbat-${activeSkill.id}.txt`;
+  a.click();
+  showToast('Downloaded!');
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  document.getElementById('toastMsg').textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = btn.dataset.cat;
+    renderGrid(currentFilter, document.getElementById('searchInput').value.toLowerCase().trim());
+  });
+});
+
+document.getElementById('searchInput').addEventListener('input', e => {
+  renderGrid(currentFilter, e.target.value.toLowerCase().trim());
+});
+
+document.getElementById('modalOverlay').addEventListener('click', e => {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+});
+
+renderGrid();
+</script>
+</body>
+</html>
